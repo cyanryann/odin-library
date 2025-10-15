@@ -11,5 +11,25 @@
     <div class="library">
 
     </div>
+    <div class="form">
+        <button onclick="popUp()">Add Book</button>
+        <dialog id="bookadding">
+            <form>
+                <label>Book Name: </label>
+                <input id="bname"type="text" required>
+                <br>
+                <label>Author Name: </label>
+                <input id="aname"type="text" required>
+                <br>
+                <label>Page Count:</label>
+                <input id="pcount"type="number" required>
+                <br>
+                <label>Has Read?</label>
+                <input id="hread"type="checkbox">
+                <br>
+                <input type="submit" id="sub">
+            </form>
+        </dialog>
+    </div>
 </body>
 </html>
