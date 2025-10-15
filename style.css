@@ -1,14 +1,17 @@
-* {
-    border: 1px black solid;
-}
+
 .library {
+    border: 2px black solid;
     display: grid;
-    grid-template-columns: 20% 20% 20% 20%;
+    grid-template-columns: 22% 22% 22% 22%;
+    justify-content: space-between;
     gap: 10px;
 }
 .library > div {
     width: 1fr;
     height: 2fr;
+    padding: 5px;
+    border: 1px black solid;
+    box-shadow: 3px 1px black;
 }
 .library > div > p {
     padding: 10px;
@@ -18,4 +21,10 @@ button:hover {
 }
 button:active {
     filter: brightness(1.1);
+}
+h3 {
+    text-align: center;
+}
+.form {
+    margin: 10px;
 }

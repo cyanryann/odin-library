@@ -21,12 +21,19 @@ function display() {
         newBook.id = element.id;
         const title = document.createElement('p');
         title.innerHTML = element.name + " by " + element.author + ". \n Read: " + element.hasRead;
+        const pCount = document.createElement('p');
+        pCount.textContent = "# of Pages: " + element.pages;
         const dButton = document.createElement("button");
         dButton.textContent = "Remove";
         dButton.onclick= () => deleteBook(element.id);
+        const rButton = document.createElement("button");
+        rButton.textContent = "Read";
+        rButton.onclick = () => read(element.id);
         lib.appendChild(newBook);
         newBook.appendChild(title);
+        newBook.appendChild(pCount);
         newBook.appendChild(dButton);
+        newBook.appendChild(rButton)
     });
 }
 function clear() {
@@ -37,6 +44,16 @@ function clear() {
 }
 function popUp() {
     dialog.show();
+}
+function read(id) {
+    myLibrary.forEach(element => {
+        if (element.id == id)
+        {
+            element.hasRead = true;
+        }
+    });
+    clear();
+    display();
 }
 function loadBook(event) {
     const bname = document.getElementById("bname").value;
