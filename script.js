@@ -17,11 +17,16 @@ function addToLibrary(name, author, pages, hasRead)
 }
 function display() {
     myLibrary.forEach(element => {
-        newBook = document.createElement('div');
-        title = document.createElement('p');
+        const newBook = document.createElement('div');
+        newBook.id = element.id;
+        const title = document.createElement('p');
         title.innerHTML = element.name + " by " + element.author + ". \n Read: " + element.hasRead;
+        const dButton = document.createElement("button");
+        dButton.textContent = "Remove";
+        dButton.onclick= () => deleteBook(element.id);
         lib.appendChild(newBook);
         newBook.appendChild(title);
+        newBook.appendChild(dButton);
     });
 }
 function clear() {
@@ -38,11 +43,23 @@ function loadBook(event) {
     const aname = document.getElementById("aname").value;
     const pcount = document.getElementById("pcount").value;
     const hread = document.getElementById("hread").value;
-    console.log(bname);
     addToLibrary(bname, aname, pcount, hread);
     clear();
     display();
+    dialog.close();
     event.preventDefault();
+
+}
+function deleteBook(id) {
+    console.log("RUNNING");
+    myLibrary.forEach(element => {
+        if (element.id == id)
+        {
+            myLibrary.splice(myLibrary.indexOf(element), 1);
+        }
+    });
+    clear();
+    display();
 }
 myForm.addEventListener("submit", loadBook);
 addToLibrary("House of Leaves", "Mark Z. Danielewski", 561, false);

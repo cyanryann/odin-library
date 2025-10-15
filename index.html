@@ -8,13 +8,14 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
+    <h3>My Library</h3>
     <div class="library">
 
     </div>
     <div class="form">
         <button onclick="popUp()">Add Book</button>
         <dialog id="bookadding">
-            <form>
+            <form id="sub">
                 <label>Book Name: </label>
                 <input id="bname"type="text" required>
                 <br>
@@ -27,7 +28,7 @@
                 <label>Has Read?</label>
                 <input id="hread"type="checkbox">
                 <br>
-                <input type="submit" id="sub">
+                <input type="submit">
             </form>
         </dialog>
     </div>
